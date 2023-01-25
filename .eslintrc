@@ -1,0 +1,70 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:react/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "test.{ts,tsx}", // repos with a single test file
+          "test-*.{ts,tsx}", // repos with multiple top-level test files
+          "**/*{.,_}{test,spec}.{ts,tsx}", // tests where the extension or filename suffix denotes that it is a test
+          "**/jest.config.ts", // jest config
+          "**/jest.setup.ts", // jest setup
+          "**/App.dev.tsx", // hot loader for dev index
+          "**/index.dev.tsx" // hot loader for dev index
+        ],
+        "optionalDependencies": false
+      }
+    ]
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "testing-library",
+    "jest-dom",
+    "prettier"
+  ]
+}
