@@ -6,7 +6,6 @@ import { Tabs } from '@modules/Tabs'
 function AppDev() {
   return <div>
     <h1>Hello, world.</ h1>
-    <h2>Environment: {process.env.NODE_ENV}</h2>
     <Tabs />
   </div>
 }
