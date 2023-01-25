@@ -97,7 +97,6 @@ server/server-prod.js
 yarn-debug.log
 yarn-error.log
 package-lock.json
-yarn.lock
 /server/certs/
 
 # Allow helm chart package
