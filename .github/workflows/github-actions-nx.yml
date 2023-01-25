@@ -1,0 +1,42 @@
+name: GitHub Actions Nx
+run-name: ${{ github.actor }} Running Nx build 🚀
+on: [push]
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    environment: env
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+
+      - run: yarn nx run-many --target=test --parallel=2 --configuration=ci
+      - run: yarn nx run-many --target=build:prod --parallel=2
+      - run: tree packages/**/dist/ -d
+
+      - uses: jsmrcaga/action-netlify-deploy@master
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+          NETLIFY_DEPLOY_TO_PROD: true
+          build_command: "echo Skipping building the web files"
+          install_command: "echo Skipping install commands"
+          build_directory: 'packages/project1/dist'
+        
+      - uses: jsmrcaga/action-netlify-deploy@master
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_2 }}
+          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+          NETLIFY_DEPLOY_TO_PROD: true
+          build_command: "echo Skipping building the web files"
+          install_command: "echo Skipping install commands"
+          build_directory: 'packages/project2/dist'

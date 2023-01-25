@@ -1,0 +1,60 @@
+{
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "targets": {
+                    "ie": 11,
+                    "esmodules": true
+                },
+                "modules": "commonjs"
+            }
+        ],
+        "@babel/preset-react",
+        [
+            "@babel/typescript",
+            {
+                "allExtensions": true,
+                "isTSX": true
+            }
+        ]
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-object-rest-spread",
+        "react-hot-loader/babel",
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "regenerator": true
+            }
+        ]
+    ],
+    "env": {
+        "test": {
+            "presets": [
+                "@babel/env",
+                "@babel/preset-react",
+                [
+                    "@babel/typescript",
+                    {
+                        "allExtensions": true,
+                        "isTSX": true
+                    }
+                ]
+            ],
+            "plugins": [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-object-rest-spread",
+                "transform-es2015-modules-commonjs",
+                "babel-plugin-dynamic-import-node",
+                [
+                    "@babel/plugin-transform-runtime",
+                    {
+                        "regenerator": true
+                    }
+                ]
+            ]
+        }
+    }
+}

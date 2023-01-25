@@ -1,0 +1,27 @@
+$disabled: #CACDD0;
+$activeLoad: #DCF4FC;
+$activePill: #292929;
+$onTimeStatus: #53575E;
+$etaDefaultStatus: #2F3032;
+$iconDelayed: rgba(41, 41, 41, 50%);
+$highContrastBlue: #006293;
+$highContrastGrey: #9DA1A7;
+$lowContrastGrey: #EFEFEF;
+$warningBackground: #FFEDF1;
+$buttonGray: #2F3032;
+$borderButtonGray: #1D1E20;
+$alloyOrange: #BE5B05;
+$warningPriority: #CF9100;
+$separatorGrey: #60646C;
+
+// Docs: https://www.figma.com/file/W6rIXPnG6vOON4yLe4i966/Tracking-System?node-id=509%3A72990
+$gridBreakpoints: (
+    xs: 0,
+    sm: 600px,
+    md: 960px,
+    lg: 1280px,
+    xl: 1920px,
+    xl-qhd: 2160px,
+    xl-wqhd: 2500px,
+    xxl: 3440px
+) !default;

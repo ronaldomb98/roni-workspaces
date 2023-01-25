@@ -1,0 +1,29 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "./src/**/*",
+    "jest-setup.ts",
+    "./types/**/*"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "dist"
+  ],
+  "compilerOptions": {
+    "jsx": "react",
+    "sourceMap": false,
+    "target": "ES6",
+    "module": "CommonJS",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "noEmit": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@styles/*": ["styles/*"],
+    }
+  },
+}
