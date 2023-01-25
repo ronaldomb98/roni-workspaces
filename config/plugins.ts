@@ -24,5 +24,4 @@ export const  cssMinimizerWebpackPlugin = new CssMinimizerWebpackPlugin();
 export const hotModuleReplacementPlugin = new HotModuleReplacementPlugin();
 
 export const envVariablesPlugin = (config) => new DefinePlugin({
-    'process.env.NODE_ENV': config.isDev ? JSON.stringify(process.env.NODE_ENV) : 'NODE_ENV'
 });
